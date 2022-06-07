@@ -15,10 +15,11 @@ function PlanetsProvider({ children }) {
       try {
         const response = await fetch(SW_API);
         const { results } = await response.json();
-        console.log('results', results);
-        const resultsFiltered = Object.keys(results[0])
-        // console.log('resultsArray', resultsArray);
-          .filter((element) => element !== 'residents');
+        // console.log('results', results);
+        const resultsFiltered = results.map((element) => {
+          delete element.residents;
+          return element;
+        });
         console.log('resultsFiltered', resultsFiltered);
         return setData(resultsFiltered);
       } catch (errorRequest) {
