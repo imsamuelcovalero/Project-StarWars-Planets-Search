@@ -1,29 +1,63 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
-import useFilter from '../hooks/useFilter';
+// import useFilter from '../hooks/useFilter';
 import CombineFilters from './CombineFilters';
 
 function Table() {
-  const [filterText, setfilterText] = useState('');
-  const { data, setData } = useContext(PlanetsContext);
+  const { data, filterText, setFilterText, hasFilter,
+    filteredData, setFilteredData, setColumns, columns,
+    initialData, setData } = useContext(PlanetsContext);
 
-  const planets = useFilter(filterText, data);
-  // console.log(xablau);
-  // setData(xablau);
+  const HandleSubmit = (filtro) => {
+    console.log('filtro', filtro);
+    const filtersUpated = filteredData.filter((elements) => elements !== filtro);
+    console.log('filtersUpated', filtersUpated);
+    setFilteredData(filtersUpated);
+    // newFilteredCombine(filtersUpated);
+    setColumns([...columns, filtro.column]);
+    console.log('aqui2');
+    if (filtersUpated.length === 0) {
+      setData(initialData);
+    }
+  };
 
   return (
     <section>
       <CombineFilters />
       <label htmlFor="input-filter-term">
-        Filtro:
+        Nome do Planeta:
         <input
           data-testid="name-filter"
           id="input-filter-term"
           value={ filterText }
           type="text"
-          onChange={ ({ target }) => setfilterText(target.value.toLowerCase()) }
+          onChange={ ({ target }) => setFilterText(target.value.toLowerCase()) }
         />
       </label>
+      {
+        hasFilter
+          && (
+            <div>
+              <ul>
+                {
+                  filteredData.map((filtro, index) => (
+                    <li data-testid="filter" key={ index }>
+                      {`${filtro.column}
+                    ${filtro.comparison}
+                    ${filtro.number}`}
+                      <button
+                        type="button"
+                        onClick={ () => HandleSubmit(filtro) }
+                      >
+                        X
+                      </button>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          )
+      }
       <table>
         <thead>
           <tr>
@@ -44,7 +78,7 @@ function Table() {
         </thead>
         <tbody>
           {
-            planets.map((planet, index) => (
+            data.map((planet, index) => (
               <tr key={ index }>
                 <td>{ planet.name }</td>
                 <td>{ planet.rotation_period }</td>

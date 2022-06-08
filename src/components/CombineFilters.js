@@ -1,18 +1,27 @@
 import React, { useState, useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
-import useCombineFilter from '../hooks/useCombineFilter';
+// import useCombineFilter from '../hooks/useCombineFilter';
 
 function CombineFilters() {
-  const [column, setColumn] = useState('');
-  const [comparison, setComparison] = useState('');
-  const [numbers, setNumbers] = useState(0);
-  const { data, setData } = useContext(PlanetsContext);
+  const [column, setColumn] = useState('population');
+  const [comparison, setComparison] = useState('maior que');
+  const [number, setNumber] = useState(0);
+  const { combineFilter, columns, setFilteredData, initialData,
+    setData } = useContext(PlanetsContext);
 
   const HandleSubmit = (event) => {
     event.preventDefault();
-    const filtredResult = useCombineFilter(column, comparison, numbers, data);
-    console.log('filtredResult', filtredResult);
-    // setData(filtredResult);
+    console.log('entrou em HandleSubmit');
+    combineFilter(column, comparison, number);
+    setColumn('population');
+    setComparison('maior que');
+    setNumber(0);
+  };
+
+  const HandleDeleteAll = (event) => {
+    event.preventDefault();
+    setFilteredData([]);
+    setData(initialData);
   };
 
   return (
@@ -26,11 +35,11 @@ function CombineFilters() {
           value={ column }
           onChange={ ({ target }) => setColumn(target.value) }
         >
-          <option>population</option>
-          <option>orbital_period</option>
-          <option>diameter</option>
-          <option>rotation_period</option>
-          <option>surface_water</option>
+          {
+            columns.map((selectOption, index) => (
+              <option key={ index }>{selectOption}</option>
+            ))
+          }
         </select>
       </label>
       <label htmlFor="select-comparison">
@@ -52,10 +61,10 @@ function CombineFilters() {
         <input
           data-testid="value-filter"
           id="input-numbers"
-          name="numbers"
-          value={ numbers }
+          name="number"
+          value={ number }
           type="number"
-          onChange={ ({ target }) => setNumbers(target.value) }
+          onChange={ ({ target }) => setNumber(target.value) }
         />
       </label>
       <button
@@ -63,7 +72,14 @@ function CombineFilters() {
         type="submit"
         onClick={ HandleSubmit }
       >
-        Executar filtragem
+        Executar Filtragem
+      </button>
+      <button
+        data-testid="button-remove-filters"
+        type="submit"
+        onClick={ HandleDeleteAll }
+      >
+        Remover Filtragens
       </button>
     </form>
   );

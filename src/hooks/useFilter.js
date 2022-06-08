@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
-function useFilter(filterText, data) {
+function useFilter(filterText) {
+  const { initialData, data, setData } = useContext(PlanetsContext);
   // console.log(data);
   const [dataFiltered, setdataFiltered] = useState([]);
   useEffect(() => {
-    const newData = data.filter(({ name }) => name.toLowerCase().includes(filterText));
+    const newData = initialData
+      .filter(({ name }) => name.toLowerCase().includes(filterText));
     // console.log('newData', newData);
     setdataFiltered(newData);
-  }, [filterText, data]);
+  }, [filterText]);
   return dataFiltered;
 }
 
