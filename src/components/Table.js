@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
 import useFilter from '../hooks/useFilter';
+import CombineFilters from './CombineFilters';
 
 function Table() {
   const [filterText, setfilterText] = useState('');
@@ -12,15 +13,15 @@ function Table() {
 
   return (
     <section>
+      <CombineFilters />
       <label htmlFor="input-filter-term">
         Filtro:
         <input
           data-testid="name-filter"
           id="input-filter-term"
-          name="value"
           value={ filterText }
           type="text"
-          onChange={ ({ target }) => setfilterText(target.value) }
+          onChange={ ({ target }) => setfilterText(target.value.toLowerCase()) }
         />
       </label>
       <table>

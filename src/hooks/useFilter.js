@@ -4,7 +4,7 @@ function useFilter(filterText, data) {
   // console.log(data);
   const [dataFiltered, setdataFiltered] = useState([]);
   useEffect(() => {
-    const newData = data.filter(({ name }) => name.includes(filterText));
+    const newData = data.filter(({ name }) => name.toLowerCase().includes(filterText));
     // console.log('newData', newData);
     setdataFiltered(newData);
   }, [filterText, data]);
