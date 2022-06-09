@@ -14,6 +14,10 @@ function PlanetsProvider({ children }) {
   const [columns, setColumns] = useState(['population', 'orbital_period',
     'diameter', 'rotation_period', 'surface_water']);
 
+  function SortArray(x, y) {
+    return x.name.localeCompare(y.name);
+  }
+
   useEffect(() => {
     const getPlanets = async () => {
       // console.log('entrou em getPlanets');
@@ -24,7 +28,7 @@ function PlanetsProvider({ children }) {
         const resultsFiltered = results.map((element) => {
           delete element.residents;
           return element;
-        });
+        }).sort(SortArray);
         // console.log('resultsFiltered', resultsFiltered);
         setInitialData(resultsFiltered);
         setData(resultsFiltered);
@@ -38,7 +42,6 @@ function PlanetsProvider({ children }) {
   useEffect(() => {
     const newData = initialData
       .filter(({ name }) => name.toLowerCase().includes(filterText));
-    // console.log('newData', newData);
     setData(newData);
   }, [filterText, initialData, setData]);
 
@@ -79,10 +82,10 @@ function PlanetsProvider({ children }) {
   // };
 
   useEffect(() => {
-    let xablau = initialData;
+    let newFilteredData = initialData;
     filteredData.forEach((filterEl) => {
       console.log(filterEl);
-      xablau = xablau.filter((planet) => {
+      newFilteredData = newFilteredData.filter((planet) => {
         if (filterEl.comparison === 'maior que') {
           return Number(planet[filterEl.column]) > Number(filterEl.number);
         } if (filterEl.comparison === 'menor que') {
@@ -91,7 +94,7 @@ function PlanetsProvider({ children }) {
         return (Number(planet[filterEl.column]) === Number(filterEl.number));
       });
     });
-    setData(xablau);
+    setData(newFilteredData);
   }, [filteredData, initialData]);
 
   const contextValue = {

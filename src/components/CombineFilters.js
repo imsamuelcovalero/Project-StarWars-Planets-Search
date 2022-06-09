@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
+import OrderFilter from './OrderFilter';
 // import useCombineFilter from '../hooks/useCombineFilter';
 
 function CombineFilters() {
   const [column, setColumn] = useState('population');
   const [comparison, setComparison] = useState('maior que');
   const [number, setNumber] = useState(0);
+
   const { combineFilter, columns, setFilteredData, initialData,
     setData } = useContext(PlanetsContext);
 
@@ -74,6 +76,7 @@ function CombineFilters() {
       >
         Executar Filtragem
       </button>
+      <OrderFilter />
       <button
         data-testid="button-remove-filters"
         type="submit"
