@@ -5,7 +5,6 @@ import PlanetsContext from './PlanetsContext';
 const SW_API = 'https://swapi-trybe.herokuapp.com/api/planets/';
 
 function PlanetsProvider({ children }) {
-  // console.log('entrou em PlanetsProvider');
   const [data, setData] = useState([]);
   const [initialData, setInitialData] = useState([]);
   const [filterText, setFilterText] = useState('');
@@ -13,6 +12,8 @@ function PlanetsProvider({ children }) {
   const [hasFilter, setHasFilter] = useState(false);
   const [columns, setColumns] = useState(['population', 'orbital_period',
     'diameter', 'rotation_period', 'surface_water']);
+  const [comparison, setComparison] = useState('maior que');
+  const [orderColumn, setOrderColumn] = useState('population');
 
   function SortArray(x, y) {
     return x.name.localeCompare(y.name);
@@ -20,16 +21,13 @@ function PlanetsProvider({ children }) {
 
   useEffect(() => {
     const getPlanets = async () => {
-      // console.log('entrou em getPlanets');
       try {
         const response = await fetch(SW_API);
         const { results } = await response.json();
-        // console.log('results', results);
         const resultsFiltered = results.map((element) => {
           delete element.residents;
           return element;
         }).sort(SortArray);
-        // console.log('resultsFiltered', resultsFiltered);
         setInitialData(resultsFiltered);
         setData(resultsFiltered);
       } catch (errorRequest) {
@@ -45,46 +43,28 @@ function PlanetsProvider({ children }) {
     setData(newData);
   }, [filterText, initialData, setData]);
 
-  const combineFilter = (column, comparison, number) => {
-    console.log('xablau_provider', column, comparison, number);
-    const combineFilterResult = data.filter((planet) => {
-      if (comparison === 'maior que') {
-        return Number(planet[column] > Number(number));
-      } if (comparison === 'menor que') {
-        return Number(planet[column] < Number(number));
-      }
-      return (Number(planet[column]) === Number(number));
-    });
-    const filterElement = { column, comparison, number };
-    // console.log(filterElement);
-    setFilteredData([...filteredData, filterElement]);
-    setHasFilter(true);
-    setData(combineFilterResult);
-    const columnsFiltered = columns.filter((elements) => elements !== column);
-    setColumns(columnsFiltered);
-  };
-
-  // const newFilteredCombine = (filtersUpated) => {
-  //   // console.log(filteredData);
-  //   let xablau = initialData;
-  //   filtersUpated.forEach((filterEl) => {
-  //     console.log(filterEl);
-  //     xablau = xablau.filter((planet) => {
-  //       if (filterEl.comparison === 'maior que') {
-  //         return Number(planet[filterEl.column]) > Number(filterEl.number);
-  //       } if (filterEl.comparison === 'menor que') {
-  //         return Number(planet[filterEl.column]) < Number(filterEl.number);
-  //       }
-  //       return (Number(planet[filterEl.column]) === Number(filterEl.number));
-  //     });
+  // const combineFilter = (column, comparison, number) => {
+  //   console.log('xablau_provider', column, comparison, number);
+  //   const combineFilterResult = data.filter((planet) => {
+  //     if (comparison === 'maior que') {
+  //       return Number(planet[column] > Number(number));
+  //     } if (comparison === 'menor que') {
+  //       return Number(planet[column] < Number(number));
+  //     }
+  //     return (Number(planet[column]) === Number(number));
   //   });
-  //   setData(xablau);
+  //   const filterElement = { column, comparison, number };
+  //   // console.log(filterElement);
+  //   setFilteredData([...filteredData, filterElement]);
+  //   setHasFilter(true);
+  //   setData(combineFilterResult);
+  //   const columnsFiltered = columns.filter((elements) => elements !== column);
+  //   setColumns(columnsFiltered);
   // };
 
   useEffect(() => {
     let newFilteredData = initialData;
     filteredData.forEach((filterEl) => {
-      console.log(filterEl);
       newFilteredData = newFilteredData.filter((planet) => {
         if (filterEl.comparison === 'maior que') {
           return Number(planet[filterEl.column]) > Number(filterEl.number);
@@ -102,14 +82,17 @@ function PlanetsProvider({ children }) {
     setData,
     filterText,
     setFilterText,
-    combineFilter,
     hasFilter,
     filteredData,
     columns,
     setFilteredData,
     setColumns,
     initialData,
-
+    setHasFilter,
+    comparison,
+    setComparison,
+    orderColumn,
+    setOrderColumn,
   };
 
   return (
