@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import PlanetsContext from '../../context/PlanetsContext';
 import CombineFilters from '../CombineFilters/CombineFilters';
 import logo from '../../SW Logo Black.png';
-import { Section, DivGlobal, SectionTable, FilterData } from './Style';
+import { Section, DivGlobal, SectionTable, FilterData, CombineFIltersDiv } from './Style';
 import TableEl from './TableEl';
 
 function Table() {
-  const { filterText, setFilterText, hasFilter,
+  const { filterText, setFilterText, hasFilter, setHasFilter,
     filteredData, setFilteredData, setColumns, columns,
     initialData, setData } = useContext(PlanetsContext);
 
@@ -16,6 +16,7 @@ function Table() {
     setColumns([...columns, filtro.column]);
     if (filtersUpated.length === 0) {
       setData(initialData);
+      setHasFilter(false);
     }
   };
 
@@ -36,17 +37,17 @@ function Table() {
             />
           </label>
         </div>
-        <div>
+        <CombineFIltersDiv>
           <CombineFilters />
-        </div>
-        <FilterData>
+        </CombineFIltersDiv>
+        <FilterData hasFilter={ hasFilter }>
           {
             hasFilter
           && (
             <ul>
               {
                 filteredData.map((filtro, index) => (
-                  <li data-testid="filter" key={ index }>
+                  <li id="filterElement" data-testid="filter" key={ index }>
                     {`${filtro.column}
                     ${filtro.comparison}
                     ${filtro.number}`}

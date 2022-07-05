@@ -2,19 +2,26 @@ import styled from 'styled-components';
 
 export const FiltersDiv = styled.div`
   display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
   border: 1px solid #F4442E;
   margin-bottom: 15px;
-  background-color: rgba(43, 45, 66, 0.4);
+  box-shadow:  3px 3px 6px #4d627d,
+             -3px -3px 6px #6984a9;
+  background-color: rgba(43, 45, 66, 0.9);
   border-radius: 10px;
   padding: 5px;
-  #radio {
+  input[type='radio'] {
     display: flex;
     flex-direction: column;
+
+    :checked {
+      transform: scale(1.3);
+      accent-color: #FDCA40;
+      border-color: #F4442E;
+      /* box-shadow: 0 0 0 2px green; */
+    }
   }
   form {
+    gap: 16px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
@@ -45,6 +52,9 @@ export const FiltersDiv = styled.div`
         outline: none;
         border:2px solid #FDCA40;
         border-radius:5px;
+      }
+      option {
+        background: rgba(43, 45, 66, 1);
       }
     }
     label {

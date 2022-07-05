@@ -35,6 +35,7 @@ function CombineFilters() {
     event.preventDefault();
     setFilteredData([]);
     setData(initialData);
+    setHasFilter(false);
   };
 
   const HandleSort = () => {

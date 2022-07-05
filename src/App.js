@@ -11,17 +11,21 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px;
     font-family: sans-serif;
     margin: 0px;
+    box-sizing: border-box;
   }
 `;
 
 const Div = styled.div`
-  // border: 1px solid #000;
   background-image: url(${background});
-  width: 100vw;
-  height: 100vh;
+  background-attachment: fixed;
+  position: relative;
+  height: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  // overflow: scroll;
+  min-height: 100vh;
+  width: 100vw;
 `;
 
 function App() {

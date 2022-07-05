@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const Section = styled.div`
   display: flex;
-  height: 100vh;
+  position: relative;
+  height: auto;
   width: 100vw;
+  // overflow: scroll;
   align-items: center;
   justify-content: center;
 `;
@@ -19,14 +21,16 @@ export const DivGlobal = styled.section`
     font-size: 1.2rem;
     color: #F4442E;
     height: 40px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    // border-bottom: 1px;
+    margin-bottom: 30px;
+    // margin-top: 10px;
     border:1.8px solid #FDCA40;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius:5px;
+    box-shadow: -20px -20px 60px #4d627d,
+                  20px 20px 60px #6984a9;
     border-top: none;
     border-left: none;
     background: transparent;
+    transition: 0.3s;
     &:focus {
       outline: none;
       border:2.5px solid #FDCA40;
@@ -38,7 +42,7 @@ export const DivGlobal = styled.section`
     }
   }
   img {
-    // height: 95%;
+    padding-left: 30px;
     width: 98%;
     align-items: center;
     justify-content: center;
@@ -66,13 +70,12 @@ export const DivGlobal = styled.section`
     tbody {
       tr {
         outline: 1px solid #7F9C96;
-        // border-top: none;
-        // border-left: none;
+        background-color: rgba(43, 45, 66, 1);
       }
     }
     th {
       color: #F4442E;
-      background-color: #2B2D42;
+      background-color: rgba(43, 45, 66, 0.75);
       align-items: center;
       text-align: center;
     }
@@ -80,13 +83,18 @@ export const DivGlobal = styled.section`
 `;
 
 export const FilterData = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   align-self: flex-start;
+  opacity: ${({ hasFilter }) => (hasFilter ? 1 : 0)};
+  transition: ${({ hasFilter }) => (hasFilter && '.6s')};
 `;
 
 export const SectionTable = styled.section`
   width: 100%;
-  height: 430px;
+  height: 100%;
   overflow: scroll;
-  // overflow-y: scroll;
+`;
+
+export const CombineFIltersDiv = styled.div`
+  width: 100%;
 `;
