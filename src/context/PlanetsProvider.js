@@ -10,10 +10,11 @@ function PlanetsProvider({ children }) {
   const [filterText, setFilterText] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [hasFilter, setHasFilter] = useState(false);
-  const [columns, setColumns] = useState(['population', 'orbital_period',
-    'diameter', 'rotation_period', 'surface_water']);
   const [comparison, setComparison] = useState('maior que');
   const [orderColumn, setOrderColumn] = useState('population');
+  const initialColumns = ['population', 'orbital_period', 'diameter',
+    'rotation_period', 'surface_water'];
+  const [columns, setColumns] = useState(initialColumns);
 
   function SortArray(x, y) {
     return x.name.localeCompare(y.name);
@@ -93,6 +94,7 @@ function PlanetsProvider({ children }) {
     setComparison,
     orderColumn,
     setOrderColumn,
+    initialColumns,
   };
 
   return (

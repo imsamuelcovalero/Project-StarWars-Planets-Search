@@ -17,7 +17,7 @@ function CombineFilters() {
 
   const { columns, setFilteredData, initialData, setData, setColumns, filteredData,
     setHasFilter, comparison, setComparison, orderColumn,
-    data } = useContext(PlanetsContext);
+    data, initialColumns } = useContext(PlanetsContext);
 
   const HandleSubmit = (event) => {
     event.preventDefault();
@@ -37,6 +37,7 @@ function CombineFilters() {
     setFilteredData([]);
     setData(initialData);
     setHasFilter(false);
+    setColumns(initialColumns);
   };
 
   const HandleSort = () => {
