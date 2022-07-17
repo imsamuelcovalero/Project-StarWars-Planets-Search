@@ -16,7 +16,8 @@ function CombineFilters() {
   });
 
   const { columns, setFilteredData, initialData, setData, setColumns, filteredData,
-    setHasFilter, comparison, setComparison, orderColumn } = useContext(PlanetsContext);
+    setHasFilter, comparison, setComparison, orderColumn,
+    data } = useContext(PlanetsContext);
 
   const HandleSubmit = (event) => {
     event.preventDefault();
@@ -40,23 +41,23 @@ function CombineFilters() {
 
   const HandleSort = () => {
     if (order.sort === 'ASC') {
-      const unknownPlanets = initialData
+      const unknownPlanets = data
         .filter((planet) => planet[order.column] === 'unknown');
-      const knownPlanets = initialData
+      const knownPlanets = data
         .filter((planet) => planet[order.column] !== 'unknown');
       knownPlanets.sort((a, b) => Number(a[order.column]) - (Number(b[order.column])));
       setData([...knownPlanets, ...unknownPlanets]);
     } else if (order.sort === 'DESC') {
-      const unknownPlanets = initialData
+      const unknownPlanets = data
         .filter((planet) => planet[order.column] === 'unknown');
-      const knownPlanets = initialData
+      const knownPlanets = data
         .filter((planet) => planet[order.column] !== 'unknown');
       knownPlanets.sort((a, b) => Number(b[order.column]) - (Number(a[order.column])));
       setData([...knownPlanets, ...unknownPlanets]);
     }
   };
 
-  useEffect(HandleSort, [setData, order, initialData]);
+  useEffect(HandleSort, [setData, order]);
 
   const HandleOrder = (event) => {
     event.preventDefault();
