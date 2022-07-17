@@ -71,6 +71,7 @@ export const DivGlobal = styled.section`
       tr {
         outline: 1px solid #7F9C96;
         background-color: rgba(43, 45, 66, 1);
+        text-align: center;
       }
     }
     th {
