@@ -52,9 +52,7 @@ export const DivGlobal = styled.section`
     list-style: none;
     font-weight: bold;
     color: #FDCA40;
-    li {
-      margin-bottom: 5px;
-    }
+    align-items: center;
     button {
       background: transparent;
       color: #F4442E;
@@ -86,8 +84,23 @@ export const DivGlobal = styled.section`
 export const FilterData = styled.div`
   margin-bottom: 5px;
   align-self: flex-start;
+  display: flex;
+  align-items: center;
+  #filterElement {
+    height: 25px;
+    width: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    #filterText {
+      align-items: center;
+      display: flex;
+    }
+  }
   opacity: ${({ hasFilter }) => (hasFilter ? 1 : 0)};
   transition: ${({ hasFilter }) => (hasFilter && '.6s')};
+  background-color: rgba(43, 45, 66, 0.75);
+  margin-bottom: 10px;
 `;
 
 export const SectionTable = styled.section`

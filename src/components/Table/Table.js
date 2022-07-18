@@ -47,17 +47,23 @@ function Table() {
             <ul>
               {
                 filteredData.map((filtro, index) => (
-                  <li id="filterElement" data-testid="filter" key={ index }>
-                    {`${filtro.column}
-                    ${filtro.comparison}
-                    ${filtro.number}`}
-                    <button
-                      type="button"
-                      onClick={ () => HandleSubmit(filtro) }
-                    >
-                      X
-                    </button>
-                  </li>
+                  <div id="filterElement" data-testid="filter" key={ index }>
+                    <div id="filterText">
+                      <li>
+                        {`${filtro.column}
+                        ${filtro.comparison}
+                        ${filtro.number}`}
+                      </li>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        onClick={ () => HandleSubmit(filtro) }
+                      >
+                        X
+                      </button>
+                    </div>
+                  </div>
                 ))
               }
             </ul>
