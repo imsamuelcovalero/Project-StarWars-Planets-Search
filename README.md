@@ -1,17 +1,17 @@
-# Bem-vindo ao projeto Metawallet
+# Bem-vindo ao projeto Star Wars Planets Search
 
-Metawallet é uma aplicação desenvolvida em React.js para controle de gastos pessoais. Nela, é possível fazer login e adicionar despesas com valor, descrição, moeda, método de pagamento e tag/tipo de despesa. As despesas contam com um valor de câmbio atualizado no momento da adição pela API e um valor convertido para Real (BRL). Além disso, é possível editar a descrição, tag, método de pagamento, valor e moeda da despesa. No header, é exibido o valor total das despesas.
+Star Wars Planets Search é uma aplicação web em React.js que acessa a base de dados da API dos planetas de Star Wars, criando uma tabela com as informações e possibilitando a pesquisa pelo nome dos planetas, além de oferecer um avançado sistema de filtragem e ordenação dos dados, permitindo que o usuário refine a busca de acordo com suas preferências.
 
 ## Sumário
-- [Bem-vindo ao projeto Metawallet](#bem-vindo-ao-projeto-metawallet)
+- [Star Wars Planets Search](#bem-vindo-ao-projeto-star-wars-planets-search)
 - [Preview](#preview)
 - [Contexto](#contexto)
 - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
 - [Instalação e Execução](#instalação-e-execução)
 - [Notas](#notas)
- - [Git, GitHub e Histórico de Commits](#git-github-e-histórico-de-commits)
- - [Lint](#lint)
- 
+  - [Git, GitHub e Histórico de Commits](#git-github-e-histórico-de-commits)
+  - [Lint](#lint)
+
 ## Preview
 
 ### Visualização para mobile e mac
@@ -19,39 +19,39 @@ Metawallet é uma aplicação desenvolvida em React.js para controle de gastos p
 
 ### Visualização para Linux
 https://user-images.githubusercontent.com/98184355/220782987-1dbe7797-e999-4183-9399-a23b37b0f843.mp4
-
+  
 ## Contexto
-A __aplicação Metawallet__ é uma ferramenta de controle financeiro que permite que o usuário:
- - Faça login e cadastre novas despesas com valor, descrição, moeda, método de pagamento e tag/tipo de despesa.
- - Adicione um valor de câmbio para as despesas com moedas diferentes do Real (BRL), obtido no momento da adição pela API de economia/cotações.
- - Converta automaticamente o valor da despesa para Real (BRL).
- - Edite a descrição, tag, método de pagamento, valor e moeda da despesa.
- - Visualize o valor total das despesas no header.
+
+A __aplicação Star Wars Planets Search__ é uma ferramenta de consulta que acessa a base de dados da API de planetas do universo Star Wars epermite ao usuário:
+- Realizar pesquisas pelo campo "nome".
+- Utilizar filtros para restringir os resultados de acordo com a coluna escolhida, o tipo de comparação e o valor de referência.
+- Utilizar a ordenação para organizar os resultados de acordo com a coluna escolhida e o tipo de ordenação, ascendente ou descendente.
+- Adicionar novas filtragens aos resultados encontrados.
 
 ## Tecnologias e Ferramentas Utilizadas
 
 Este projeto utiliza as seguintes tecnologias e ferramentas:
 
-- [React.js com classes](https://reactjs.org/docs/getting-started.html) | Biblioteca para criar interfaces de usuário.
+- [React.js](https://reactjs.org/docs/getting-started.html) | Biblioteca para criar interfaces de usuário.
 - [Styled Components](https://styled-components.com/) | Biblioteca para estilização do CSS.
-- [API de economia/cotações](https://economia.awesomeapi.com.br/json/all) | API utilizada para obter informações sobre cotações de moedas e criptomoedas.
-- [Redux](https://redux.js.org/) | Biblioteca de gerenciamento de estado.
+- [API dos planetas de Star Wars](https://swapi.dev/api/planets) | API utilizada para obter informações sobre planetas do universo Star Wars.
+- [Context API](https://pt-br.reactjs.org/docs/context.html) | API utilizada para gerenciamento de estado.
 
-O React.js foi escolhido por ser uma das bibliotecas mais populares e amplamente utilizadas para criar interfaces de usuário. Além disso, ele oferece suporte a programação orientada a objetos, o que é importante para o desenvolvimento de projetos maiores. O Styled Components foi escolhido porque permite que os desenvolvedores escrevam o CSS em formato de componente, o que torna o código mais legível e fácil de entender. A API de economia/cotações foi utilizada para obter informações atualizadas sobre cotações de moedas e criptomoedas, fornecendo informações precisas e detalhadas. O Redux foi utilizado para gerenciar o estado global da aplicação, tornando mais fácil a comunicação entre diferentes componentes e permitindo uma melhor organização do código.
+O React.js foi escolhido por ser uma das bibliotecas mais populares e amplamente utilizadas para criar interfaces de usuário. Além disso, o React.js é fácil de aprender e possui uma grande comunidade de desenvolvedores, o que torna mais fácil encontrar soluções para problemas comuns. O Styled Components foi escolhido porque permite que os desenvolvedores escrevam o CSS em formato de componente, o que torna o código mais legível e fácil de entender.A API dos planetas de Star Wars foi acessada para obter informações precisas e detalhadas sobre os planetas presentes no universo Star Wars. A Context API foi utilizada para gerenciar o estado global da aplicação, tornando mais fácil a comunicação entre diferentes componentes e permitindo uma melhor organização do código.
 
 ## Instalação e Execução
 ### Download do projeto
 ```
-git clone git@github.com:imsamuelcovalero/Project-Metawallet.git
+git clone git@github.com:imsamuelcovalero/Project-StarWars-Planets-Search.git
 ```
 ### Install dependencies
 ```
-cd Project-Metawallet
+cd Project-StarWars-Planets-Search
 npm install
 ```
 ### Run the application
 ```
-cd Project-Metawallet
+cd Project-StarWars-Planets-Search
 npm start
 ```
 
