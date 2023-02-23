@@ -15,10 +15,10 @@ Star Wars Planets Search é uma aplicação web em React.js que acessa a base de
 ## Preview
 
 ### Visualização para mobile e mac
-[![Preview](https://img.youtube.com/vi/cCge-eZOrO0/0.jpg)](https://www.youtube.com/watch?v=cCge-eZOrO0)
+[![Preview](https://img.youtube.com/vi/qPUmVBXZTtc/0.jpg)](https://www.youtube.com/watch?v=qPUmVBXZTtc)
 
 ### Visualização para Linux
-https://user-images.githubusercontent.com/98184355/220782987-1dbe7797-e999-4183-9399-a23b37b0f843.mp4
+https://user-images.githubusercontent.com/98184355/221040144-20c1239f-157b-494e-a298-d3f870763ccd.mp4
   
 ## Contexto
 
