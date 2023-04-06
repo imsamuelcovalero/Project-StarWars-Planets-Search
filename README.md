@@ -20,9 +20,7 @@ Star Wars Planets Search é uma aplicação web em React.js que acessa a base de
   - [Git, GitHub e Histórico de Commits](#git-github-e-histórico-de-commits)
   - [Lint](#lint)
 
-## Preview
-
-**Visualização:**
+## Visualização
 
 <div align="center">
 
