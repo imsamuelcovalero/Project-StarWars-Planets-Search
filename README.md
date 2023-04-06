@@ -12,7 +12,7 @@ Star Wars Planets Search é uma aplicação web em React.js que acessa a base de
 
 ## Sumário
 - [Star Wars Planets Search](#bem-vindo-ao-projeto-star-wars-planets-search)
-- [Preview](#preview)
+- [Visualização](#visualização)
 - [Contexto](#contexto)
 - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
 - [Instalação e Execução](#instalação-e-execução)
