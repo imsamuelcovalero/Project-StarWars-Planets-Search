@@ -1,7 +1,14 @@
 # Bem-vindo ao projeto Star Wars Planets Search
 
 Star Wars Planets Search é uma aplicação web em React.js que acessa a base de dados da API dos planetas de Star Wars, criando uma tabela com as informações e possibilitando a pesquisa pelo nome dos planetas, além de oferecer um avançado sistema de filtragem e ordenação dos dados, permitindo que o usuário refine a busca de acordo com suas preferências.
-> Acesse o [deeploy da aplicação aqui](https://project-star-wars-planets-search.vercel.app/)
+> - Veja o post sobre a aplicação [no LinkedIn aqui.](https://www.linkedin.com/posts/samuelcovalero_gotrybe-frontend-starwars-activity-6954944564864401408-OUO7?utm_source=share&utm_medium=member_desktop)
+> - Acesse o [deeploy da aplicação aqui](https://project-star-wars-planets-search.vercel.app/)
+<details>
+<summary>Informações para utilizar a aplicação no deploy</summary><br>
+ 
+ - Não precisa logar, basta acessar fazer as consultas.
+ 
+</details>
 
 ## Sumário
 - [Star Wars Planets Search](#bem-vindo-ao-projeto-star-wars-planets-search)
@@ -15,11 +22,13 @@ Star Wars Planets Search é uma aplicação web em React.js que acessa a base de
 
 ## Preview
 
-### Visualização para mobile e mac
-[![Preview](https://img.youtube.com/vi/qPUmVBXZTtc/0.jpg)](https://www.youtube.com/watch?v=qPUmVBXZTtc)
+**Visualização:**
 
-### Visualização para Linux
-https://user-images.githubusercontent.com/98184355/221040144-20c1239f-157b-494e-a298-d3f870763ccd.mp4
+<div align="center">
+
+![starwars ](https://user-images.githubusercontent.com/98184355/230398223-437e02ef-82b1-4cbb-8a58-096c88dc02c0.gif)
+
+</div>
   
 ## Contexto
 
